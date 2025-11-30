@@ -28,7 +28,7 @@ html, #root, .App {
 }
 
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
@@ -54,7 +54,7 @@ html, #root, .App {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-    width: calc(100% - 4rem);
+    width: calc(100% - 6rem);
     top: 0.5rem;
   }
 }
