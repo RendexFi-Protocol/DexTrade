@@ -101,12 +101,12 @@ const WalletConnect = () => {
   // Wenn verbunden
   if (isConnected) {
     return (
-      <div className="wallet-connected-jup">
+      <div className="wallet-connected">
         <div className="wallet-info">
           <div className="wallet-balance">{formatBalance(balance)} SOL</div>
-          <div className="wallet-address-jup">{shortenAddress(walletAddress)}</div>
+          <div className="wallet-address">{shortenAddress(walletAddress)}</div>
         </div>
-        <button className="disconnect-button-jup" onClick={disconnectWallet}>
+        <button className="disconnect-button" onClick={disconnectWallet}>
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
           </svg>
@@ -117,13 +117,13 @@ const WalletConnect = () => {
 
   // Wenn nicht verbunden
   return (
-    <div className="wallet-container-jup">
-      <button className="connect-button-jup" onClick={() => setShowMenu(!showMenu)}>
+    <div className="wallet-container">
+      <button className="connect-button" onClick={() => setShowMenu(!showMenu)}>
         <span className="connect-button-text">Connect</span>
       </button>
 
       {showMenu && (
-        <div className="wallet-menu-jup">
+        <div className="wallet-menu">
           <div className="wallet-menu-header">
             <span>Connect Wallet</span>
             <button className="close-button" onClick={() => setShowMenu(false)}>×</button>
@@ -131,7 +131,7 @@ const WalletConnect = () => {
 
           <div className="wallet-options">
 
-            <button className="wallet-option-jup" onClick={connectPhantom}>
+            <button className="wallet-option" onClick={connectPhantom}>
               <div className="wallet-option-content">
                 <div className="wallet-option-icon">
                   <img src={phantom_icon} alt="Phantom" />
@@ -144,7 +144,7 @@ const WalletConnect = () => {
               <div className="wallet-option-arrow">→</div>
             </button>
 
-            <button className="wallet-option-jup" onClick={connectSolflare}>
+            <button className="wallet-option" onClick={connectSolflare}>
               <div className="wallet-option-content">
                 <div className="wallet-option-icon">
                   <img src={solflare_icon} alt="Solflare" />
