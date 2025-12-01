@@ -59,7 +59,7 @@ html, #root, .App {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px; /* ABSTAND ZWISCHEN COMPONENTS */
 }
 
 /* Responsive Design */
