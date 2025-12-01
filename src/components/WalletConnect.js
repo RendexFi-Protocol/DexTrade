@@ -12,9 +12,10 @@ const WalletConnect = () => {
   const [balance, setBalance] = useState(0);
 
   // *** WICHTIG: Stabiler RPC → richtige Balance ***
-  const connection = React.useMemo(() => {
-    return new Connection("https://api.mainnet.solana.com", "confirmed");
-  }, []);
+  const connection = new Connection(
+  "https://solana-mainnet.rpcfast.com",
+  "confirmed"
+);
 
   // BALANCE automatisch laden
   useEffect(() => {
@@ -34,32 +35,27 @@ const WalletConnect = () => {
 
   // PHANTOM CONNECT
   const connectPhantom = async () => {
-    try {
-      const provider = window?.phantom?.solana || window?.solana;
+  try {
+    const provider = window?.phantom?.solana;
 
-      if (!provider?.isPhantom) {
-        alert("Phantom Wallet nicht gefunden!");
-        window.open("https://phantom.app/", "_blank");
-        return;
-      }
-
-      const resp = await provider.connect();
-      const address = resp.publicKey.toString();
-
-      console.log("Phantom connected:", address);
-
-      setWalletAddress(address);
-      setIsConnected(true);
-      setShowMenu(false);
-
-      // Balance sofort laden
-      const lamports = await connection.getBalance(new PublicKey(address));
-      setBalance(lamports / LAMPORTS_PER_SOL);
-
-    } catch (err) {
-      console.error("Phantom Fehler:", err);
+    if (!provider) {
+      alert("Phantom Wallet nicht gefunden!");
+      return;
     }
-  };
+
+    const resp = await provider.connect();
+    const address = resp.publicKey.toString();
+
+    setWalletAddress(address);
+    setIsConnected(true);
+
+    const lamports = await connection.getBalance(new PublicKey(address));
+    setBalance(lamports / LAMPORTS_PER_SOL);
+
+  } catch (e) {
+    console.log("Phantom error:", e);
+  }
+};
 
   // SOLFLARE CONNECT
   const connectSolflare = async () => {
