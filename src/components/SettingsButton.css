@@ -63,7 +63,7 @@
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: white;
 }
 
 .close-btn {
@@ -100,13 +100,13 @@
   border: none;
   text-align: left;
   cursor: pointer;
-  color: #333;
+  color: white;
   font-size: 14px;
   transition: background 0.2s;
 }
 
 .settings-option:hover {
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .settings-option span {
@@ -137,6 +137,7 @@
   color: #666;
 }
 
+/* box styling for version and network status */
 .app-version {
   background: #e9ecef;
   padding: 4px 8px;
