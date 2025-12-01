@@ -1,11 +1,35 @@
 import React, { useState } from 'react';
 import './WalletConnect.css';
 
+const { Connection, LAMPORTS_PER_SOL } = require(@solana/web3.js');
+
 const WalletConnect = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
   const [showMenu, setShowMenu] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [connection] = useState(new Connection('https://api.mainnet-beta.solana.com'));
+  
+  
+  
+  // Balance abruf wenn verbunden ist
+  useEffect(() => {
+    if (isConnected && walletAddress) {
+      getBalance();
+    }
+  }, [isConnected, walletAddress]);
 
+  const getBalance = async () => {
+    try {
+      const publicKey = new (await import('@solana/web3.js')).PublicKey(walletAddress);
+      const balanceInLamports = await connection.getBalance(publicKey);
+      const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
+      setBalance(balanceInSOL);
+    } catch (error) {
+      console.error('Error fetching balance:', error);
+    }
+  };
+  
   const connectPhantom = async () => {
     try {
       if (window?.solana?.isPhantom) {
@@ -14,6 +38,13 @@ const WalletConnect = () => {
         setWalletAddress(address);
         setIsConnected(true);
         setShowMenu(false);
+        
+        // Balance sofort abrufen
+        const publicKey = new (await import('@solana/web3.js')).PublicKey(address);
+        const balanceInLamports = await connection.getBalance(publicKey);
+        const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
+        setBalance(balanceInSOL);
+        
       } else {
         alert('Phantom Wallet nicht gefunden!');
         window.open('https://phantom.app/', '_blank');
@@ -29,6 +60,12 @@ const WalletConnect = () => {
         // Solflare Verbindungslogik
         console.log('Solflare connected');
         setShowMenu(false);
+        
+        // Balance für Solflare
+        const publicKey = new (await import('@solana/web3.js')).PublicKey(address);
+        const balanceInLamports = await connection.getBalance(publicKey);
+        const balanceInSOL = balanceInLamports / LAMPORTS_PER_SOL;
+        setBalance(balanceInSOL);
       } else {
         alert('Solflare Wallet nicht gefunden!');
         window.open('https://solflare.com/', '_blank');
@@ -49,12 +86,16 @@ const WalletConnect = () => {
   const shortenAddress = (address) => {
     return `${address.slice(0, 4)}...${address.slice(-4)}`;
   };
-
+  
+  const formatBalance = (bal) => {
+    return bal.toFixed(3); // 3 Nachkommastellen
+  };
+  
   if (isConnected) {
     return (
       <div className="wallet-connected-jup">
         <div className="wallet-info">
-          <div className="wallet-balance">0 SOL</div>
+          <div className="wallet-balance">{formatBalance(balance)} SOL</div>
           <div className="wallet-address-jup">{shortenAddress(walletAddress)}</div>
         </div>
         <button className="disconnect-button-jup" onClick={disconnectWallet}>
