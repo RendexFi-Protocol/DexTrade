@@ -1,5 +1,7 @@
 import './App.css';
+
 import WalletConnect from './components/WalletConnect';
+import SettingsButton from './components/SettingsButton';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
                 <div className="nav-left">             
                 </div>
                 <div className="nav-right">
+                    
                     
                     <WalletConnect />
                 </div>
