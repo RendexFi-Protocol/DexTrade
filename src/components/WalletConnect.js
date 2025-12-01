@@ -11,7 +11,7 @@ const WalletConnect = () => {
   const [walletAddress, setWalletAddress] = useState('');
   const [showMenu, setShowMenu] = useState(false);
   const [balance, setBalance] = useState(0);
-  const [connection] = useState(new Connection('https://api.mainnet-beta.solana.com'));
+  const connection = new Connection('https://api.mainnet-beta.solana.com', "confirmed");
 
   // Wallet Balance abruf wenn connectet ist
   useEffect(() => {
