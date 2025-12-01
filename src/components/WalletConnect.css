@@ -33,15 +33,16 @@
   z-index: 2;
 }
 
-/* Connected State - JUP Style */
+/* Connected State */
+
 .wallet-connected-jup {
   display: flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 6px 10px 6px 12px;
+  border-radius: 6px;
+  padding: 6px 10px 6px 10px;
   backdrop-filter: blur(10px);
   height: 30px;
 }
