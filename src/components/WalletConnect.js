@@ -144,7 +144,7 @@ const WalletConnect = () => {
             <button className="wallet-option-jup" onClick={connectPhantom}>
               <div className="wallet-option-content">
                 <div className="wallet-option-icon">
-                  <img src={phantom_icon} alt={alt}/>
+                  <img src={phantom_icon} alt=Phantom Wallet Logo/>
                 </div>
                 <div className="wallet-option-info">
                   <div className="wallet-option-name">Phantom</div>
@@ -157,7 +157,7 @@ const WalletConnect = () => {
             <button className="wallet-option-jup" onClick={connectSolflare}>
               <div className="wallet-option-content">
                 <div className="wallet-option-icon">
-                  <img src={solflare_icon} alt={alt}/>
+                  <img src={solflare_icon} alt=Solflare Wallet Logo/>
                 </div>
                 <div className="wallet-option-info">
                   <div className="wallet-option-name">Solflare</div>
