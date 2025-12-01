@@ -6,9 +6,9 @@
 .settings-button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  padding: 3px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
