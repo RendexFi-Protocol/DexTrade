@@ -1,9 +1,9 @@
-/* JUP.ag Style Connect Button */
-.wallet-container-jup {
+/* Style Connect Button */
+.wallet-container {
   position: relative;
 }
 
-.connect-button-jup {
+.connect-button {
   background: linear-gradient(90deg, #8c66fc, #5b34fa);
   border: none;
   border-radius: 8px;
@@ -19,12 +19,12 @@
   overflow: hidden;
 }
 
-.connect-button-jup:hover {
+.connect-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 20px rgba(91, 52, 250, 0.4);
 }
 
-.connect-button-jup:active {
+.connect-button:active {
   transform: translateY(0);
 }
 
@@ -35,10 +35,10 @@
 
 /* Connected State */
 
-.wallet-connected-jup {
+.wallet-connected {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
@@ -60,13 +60,13 @@
   color: #00ff88;
 }
 
-.wallet-address-jup {
+.wallet-address {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
-.disconnect-button-jup {
+.disconnect-button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 6px;
@@ -81,13 +81,13 @@
   widght: 24px;
 }
 
-.disconnect-button-jup:hover {
+.disconnect-button:hover {
   background: rgba(255, 255, 255, 0.15);
   color: white;
 }
 
-/* Wallet Menu - JUP Style */
-.wallet-menu-jup {
+/* Wallet Menu  */
+.wallet-menu {
   position: absolute;
   top: 100%;
   right: 0;
@@ -133,7 +133,7 @@
   gap: 8px;
 }
 
-.wallet-option-jup {
+.wallet-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,7 +147,7 @@
   transition: all 0.2s ease;
 }
 
-.wallet-option-jup:hover {
+.wallet-option:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateX(4px);
