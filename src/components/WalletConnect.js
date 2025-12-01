@@ -35,27 +35,25 @@ const WalletConnect = () => {
 
   // PHANTOM CONNECT
   const connectPhantom = async () => {
-  try {
-    const provider = window?.phantom?.solana;
-
-    if (!provider) {
-      alert("Phantom Wallet nicht gefunden!");
-      return;
+    try {
+      const provider = window?.phantom?.solana;
+      
+      if (!provider) {
+        alert("Phantom Wallet nicht gefunden!");
+        return;
+      }
+      
+      const resp = await provider.connect();
+      const address = resp.publicKey.toString();
+      setWalletAddress(address);
+      setIsConnected(true);
+      
+      const lamports = await connection.getBalance(new PublicKey(address));
+      setBalance(lamports / LAMPORTS_PER_SOL);
+    } catch (e) {
+      console.log("Phantom error:", e);
     }
-
-    const resp = await provider.connect();
-    const address = resp.publicKey.toString();
-
-    setWalletAddress(address);
-    setIsConnected(true);
-
-    const lamports = await connection.getBalance(new PublicKey(address));
-    setBalance(lamports / LAMPORTS_PER_SOL);
-
-  } catch (e) {
-    console.log("Phantom error:", e);
-  }
-};
+  };
 
   // SOLFLARE CONNECT
   const connectSolflare = async () => {
