@@ -6,15 +6,15 @@
 .settings-button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px;
-  border-radius: 14px;
+  border-radius: 8px;
   cursor: pointer;
-  padding: 6px;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   color: white;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .settings-button:hover {
@@ -24,8 +24,8 @@
 }
 
 .settings-button svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   transition: transform 0.3s ease;
 }
 
