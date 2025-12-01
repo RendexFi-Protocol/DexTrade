@@ -13,7 +13,7 @@ function App() {
                 </div>
                 <div className="nav-right">
                     
-                    
+                    <SettingsButton />
                     <WalletConnect />
                 </div>
             </div>
