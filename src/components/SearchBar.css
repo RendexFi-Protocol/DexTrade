@@ -97,7 +97,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .search-container {
-    max-width: 300px;
+    max-width: 200px;
   }
   
   .search-submit {
