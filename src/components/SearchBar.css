@@ -32,7 +32,7 @@
   border: 2px solid #e9ecef;
   border-radius: 12px;
   font-size: 14px;
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   outline: none;
 }
