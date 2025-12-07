@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "./Login.module.css";
+import logo from "./assets/logo512.png";
 
 export default function Login() {
   const [pw, setPw] = useState("");
@@ -14,22 +16,34 @@ export default function Login() {
     const data = await res.json();
 
     if (data.success) {
-      window.location.href = "/";
+      window.location.reload();
     } else {
       setError("Falsches Passwort");
     }
   }
 
   return (
-    <div style={{ padding: 50 }}>
-      <h2>Passwort</h2>
-      <input
-        type="password"
-        value={pw}
-        onChange={(e) => setPw(e.target.value)}
-      />
-      <button onClick={submit}>Login</button>
-      {error && <p>{error}</p>}
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <img src={logo} alt="RendexFi" className={styles.logo} />
+
+        <h2 className={styles.title}>RendexFi Access</h2>
+        <p className={styles.subtitle}>Bitte Passwort eingeben</p>
+
+        <input
+          type="password"
+          value={pw}
+          onChange={(e) => setPw(e.target.value)}
+          className={styles.input}
+          placeholder="Passwort"
+        />
+
+        <button onClick={submit} className={styles.button}>
+          Login
+        </button>
+
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
     </div>
   );
 }
