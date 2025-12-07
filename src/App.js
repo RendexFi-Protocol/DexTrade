@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import Login from "./Login";
+
 import './App.css';
 
 import WalletConnect from './components/WalletConnect';
