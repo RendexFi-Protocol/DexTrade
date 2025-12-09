@@ -40,7 +40,6 @@
 }
 
 .settings-dropdown {
-  .settings-dropdown {
   position: fixed;
   top: max(env(safe-area-inset-top), 1rem);
   left: 50%;
