@@ -30,7 +30,7 @@ function App() {
       <nav className="navbar">
         <div className="nav-wrapper">
           <div className="nav-left">
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" className="logo" />
             <SearchBar />
           </div>
           <div className="nav-right">
