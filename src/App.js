@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Login";
 import "./layout.css";
@@ -16,9 +17,21 @@ function App() {
   if (!checked) return null;
 
   return (
-    <div className="App">
-      {!auth && <Login />}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* LOGIN */}
+        <Route
+          path="/login"
+          element={auth ? <Navigate to="/" replace /> : <Login />}
+        />
+
+        {/* ROOT */}
+        <Route
+          path="/"
+          element={auth ? null : <Navigate to="/login" replace />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
