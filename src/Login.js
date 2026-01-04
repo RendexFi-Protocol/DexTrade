@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
-import logo from "./assets/logo512.png";
+import logo from "./assets/logo512.PNG";
 
 export default function Login() {
   const [pw, setPw] = useState("");
