@@ -10,14 +10,14 @@ export default function handler(req, res) {
     return res.status(500).json({ error: "Password env variable missing" });
   }
 
-  if (password === correctPassword) {
-    res.setHeader(
-      "Set-Cookie",
-      `session=valid; Path=/; HttpOnly; SameSite=Strict; Max-Age=86400`
-    );
-
-    return res.status(200).json({ success: true });
+  if (password !== correctPassword) {
+    return res.status(401).json({ success: false });
   }
 
-  res.status(200).json({ success: false });
+  res.setHeader(
+    "Set-Cookie",
+    "session=valid; Path=/; HttpOnly; SameSite=Strict; Secure; Max-Age=86400"
+  );
+
+  return res.status(200).json({ success: true });
 }
